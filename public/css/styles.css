@@ -1,0 +1,144 @@
+
+* {
+  margin: 0;
+  padding: 0;
+}
+.centered {
+    padding-top: 200px;
+    text-align: center;
+}
+ 
+.container-yash {
+  display: flex;
+  justify-content: center;
+ 
+}
+.container-main {
+  color: navy;
+  background-color: silver;
+  height: 400px;
+  /* width: 80vw; */
+  margin-top: 10vw;
+}
+.btn-div {
+  display: flex;
+  justify-content: center;
+
+}
+.yashbtn {
+  font-size: large;
+  margin-right: 20px;
+}
+.body  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 100px;
+}
+.container-yash-home {
+  display: flex;
+  justify-content: center;
+   
+
+}
+@media (max-width:600px) {
+  .img-div img {
+    width: 73vw;
+   
+  }
+}
+ 
+.img-div img {
+  width: 45vw;
+  border-radius: 20px;
+  height: 600px;
+  margin-right: 30px;
+}
+
+ #imput-u, #imput-p,#imput-c,#imput-cnf,#imput-name,#imput-dob{
+  width: 300px;
+  background-color: aliceblue;
+ }
+ 
+
+ .ba {
+  width: 280px;
+  background-color: rgb(64, 93, 230);
+ }
+ .ba:hover {
+  background-color:rgb(64, 93, 230);
+ }
+ .login-register {
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 0.2px solid rgb(200, 198, 198);
+  border-radius: 5px;
+  padding: 24px 10px 24px 10px;
+  box-shadow: 1px 1px 13px rgb(167, 167, 167);
+  
+
+ }
+ .login-register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 10px;
+
+ }
+ 
+
+ .div1 {
+  width: 100px;
+  height: 0.2px;
+  border: 1px solid gray;
+
+ }
+ .div2 {
+  margin: 0px 8px 0px 8px;
+ }
+ .other-login  {
+  margin: 15px 0px 5px 0px;
+  color: blue;
+
+ }
+
+ .log-flex {
+  display: flex;
+  flex-direction: column;
+ }
+ .new-register {
+  margin-top: 10px;
+  width: 341px;
+  height: 80px;
+  padding-bottom: 3px;
+  
+ }
+ .passcheck {
+  margin-top: -10px;
+  margin-right: 160px;
+
+ }
+  
+ .main-cont-register {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center ;
+
+ }
+#fileInput {
+  border-radius: 10px ;
+  background-color: burlywood;
+}
+.main-for-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <title>Real-time Chat</title>
+  <style>
+    #messages {
+      list-style-type: none;
+      color: white;
+      font-size: 14px;
+      margin: 0;
+      /* width: 300px; */
+      padding: 0;
+    }
+
+    #messages li {
+      margin-top: 5px;
+      margin-bottom: 1px;
+      background-color: #075e54;
+      border-radius: 4px;
+      color: white;
+      padding: 1px 2px 1px 2px;
+      width: fit-content;
+
+    }
+
+    #messages li span {
+      width: fit-content;
+    }
+
+    .all {
+      display: flex;
+      justify-content: center;
+    }
+
+    .input-div-btn {
+      position: absolute;
+      bottom: 100px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .container {
+      width: 400px;
+      margin: 0 auto;
+      border: solid 1px gray;
+      border-radius: 5px;
+      overflow: hidden;
+      background-image: url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg');
+      background-size: cover;
+    }
+
+    .chat-container {
+      height: 600px;
+      overflow-x: hidden;
+      overflow: auto;
+
+    }
+
+    .chat-container .message {
+      border-bottom: solid 1px goldenrod;
+      padding: 20px;
+      direction: ltr;
+    }
+
+    .chat-container .message .avatar {
+      float: left;
+      margin-right: 5px;
+    }
+
+    .send-message-form input {
+      width: 100%;
+      border: none;
+      font-size: 16px;
+      padding: 10px;
+    }
+
+    #m,
+    #username {
+      width: 270px;
+      border: 0.1px solid gray;
+      border-right: none;
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+      height: 35px;
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 6px;
+
+    }
+
+    #username {
+      width: 220px;
+    }
+
+    #setUsername {
+      width: 100px;
+      color: rgb(64, 64, 245);
+
+    }
+
+    #m,
+    #yashsent,
+    #username,
+    #clear-chat:focus {
+      outline: none;
+    }
+
+    .for-inline,
+    .username-form {
+      display: flex;
+      justify-content: center;
+    }
+
+    .input-form {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .username-form {
+      margin-top: -130px;
+    }
+
+    #yashsent,
+    #setUsername {
+      border: none;
+      border-top: 0.1px solid gray;
+      border-right: 0.1px solid gray;
+      border-bottom: 0.1px solid gray;
+      background-color: transparent;
+      border-top-right-radius: 6px;
+      border-bottom-right-radius: 6px;
+      padding: 1px 10px 1px 3px;
+      cursor: pointer;
+    }
+
+    .footer-part {
+      text-align: center;
+      margin: auto;
+      margin-top: 5px;
+      background-color: navy;
+      height: 90px;
+      padding-top: 20px;
+      color: white;
+    }
+
+    .footer-part p {
+      margin-bottom: -5px;
+    }
+
+    #clear-chat {
+      position: relative;
+      margin-left: 260px;
+      width: 100px;
+      border: none;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .for-inline {
+      visibility: hidden;
+      margin-bottom: 23px;
+    }
+
+    .body-for-online-user {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .online {
+      display: flex;
+
+    }
+
+    #clear-chat {
+      visibility: visible;
+    }
+
+    .main {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    .img-chat img {
+      width: 40vw;
+    }
+
+    #imgProfile img {
+      max-width: 300px;
+      max-height: 300px;
+      border-radius: 50%;
+      box-shadow: 2px 2px 10px rgb(181, 172, 172);
+    }
+
+    .div-for-name-chat-app {
+      margin-top: 10px;
+      width: 400px;
+      height: 60px;
+      padding: 1px 10px 2px 140px;
+      color: white;
+      background-color: blue;
+    }
+
+    @media (max-width:600px) {
+      .your-profile {
+        margin-left: -80px;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="main">
+    <div class="body-for-online-user">
+      <div class="div-for-name-chat-app">
+        CHAT ANYONE
+        <div class="online">
+          <span>online users:</span> <span id="onlineUsersCount" style="text-align: center;">0</span>
+        </div>
+      </div>
+      <div class="container">
+        <div class="chat-container">
+          <ul id="messages"></ul>
+        </div>
+        <div class="input-form">
+          <form id="form" action="">
+            <button type="button" id="clear-chat">clear chat <i class="fa-solid fa-trash-can"></i></button>
+            <div class="for-inline">
+              <input type="text" class="form-controls" id="m" placeholder="Enter message">
+              <input type="file" name="image" id="fileInput" style="display: none;"><label style=" 
+              padding: 4px 16px 0px 2px;
+              border-top: 0.1px solid gray;
+              border-bottom: 0.1px solid gray;
+              height: 35px;
+              margin: 0;color: rgb(14, 181, 247);
+              cursor: pointer;" for="fileInput"><i class="fa-solid fa-file"></i>
+              </label>
+              <button id="yashsent"><i class="fa-solid fa-paper-plane" style="
+              color: rgb(14, 181, 247);
+              cursor: pointer;"></i>
+              </button>
+            </div>
+            <div class="username-form">
+              <input type="text" class="form-controls" id="username" name="chatUsername"
+                placeholder="Enter your username">
+              <button id="setUsername">Set name</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-part">
+      <p id="thankyouFooter">Thank you ! this web is made by <b> yash sabne</b>.</p>
+      © copyright (2023) - <i> yash sabne</i>
+      <p id="yash-end-clr-prblm"><a href="https://linkedin.com/in/yash-sabne-77239b287" target="_blank">
+          <i style="margin-right: 20px;font-size: larger;" class="fa-brands fa-linkedin">
+          </i></a><a href="https://github.com/yashsabne" target="_blank"> <i style="font-size: larger"
+          class="fa-brands fa-github"></i></a></p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+
+    $(function () {
+      const socket = io();
+      const messagesArray = [];
+      socket.on('update online users', (count) => {
+  document.getElementById('onlineUsersCount').innerText = count;
+});
+//=====================USERNAME SET SUCCESSFULLY==============//
+
+      $('#setUsername').click(function () {
+        const username = $('#username').val();
+        if (username.trim() !== "") {
+          socket.emit('set username', username);
+          $('.username-form').hide(); // Hide the username input once set
+        }
+      });
+//=====================IMAGE READING SET SUCCESSFULLY==============//
+
+      const fileInput = $('#fileInput');
+      fileInput.change(function () {
+        const file = this.files[0];
+
+        if (file) {
+          const reader = new FileReader();
+
+          reader.onload = function (e) {
+            socket.emit('image', e.target.result);
+          };
+
+          reader.readAsDataURL(file);
+        }
+
+      });
+
+      //=====================LOCAL STORAGE SET SUCCESSFULLY==============//
+
+      $(document).ready(function () {
+        const storedMessages = JSON.parse(localStorage.getItem('chatMessages')) || [];
+        if (storedMessages.length > 0) {
+          $('#messages').html(storedMessages.join(''));
+          scrollChatContainer();
+        }
+      });
+
+      function saveToLocalStorage() {
+        const messagesArray = $('#messages li').map(function () {
+          return $(this).prop('outerHTML');
+        }).get();
+
+        localStorage.setItem('chatMessages', JSON.stringify(messagesArray));
+      }
+
+//=====================SENDING MESSAGE SET SUCCESSFULLY==============//
+
+      $('form').submit(function () {
+        const message = $('#m').val();
+        socket.emit('chat message', message);
+        $('#m').val('');
+        return false;
+      });
+
+
+
+socket.on('chat message', function (data) {
+    const timestamp = new Date().getTime(); // Unique identifier for the message
+    const listItem = $('<li>').attr('data-messageid', timestamp).html(`${data.message}<button class="like-button" data-messageid="${timestamp}"><i class="fa-solid fa-heart" style="color:red"></i></button> <span class="like-count" data-messageid="${timestamp}">Likes: 0</span>`);
+    $('#messages').append(listItem);
+
+    saveToLocalStorage(); // Save chat to local storage
+    scrollChatContainer();
+});
+
+//====================USER JOINED NOTIFICATION SET SUCCESSFULLY==============//
+
+socket.on('user joined', (username) => {
+    const notification = $('<li>').text(`${username} has joined the chat`);
+    $('#messages').append(notification);
+    scrollChatContainer();
+});
+
+//=====================FEATURES OF LIKE MESSAGE SET SUCCESSFULLY==============//
+
+$(document).on('click', '.like-button', function () {
+    const likedMessageId = $(this).data('messageid');
+    socket.emit('like message', likedMessageId);
+});
+socket.on('update likes', (data) => {
+    const { likedMessageId, likesCount } = data;
+    const likeCountElement = $(`[data-messageid="${likedMessageId}"] .like-count`);
+    likeCountElement.text(`Likes: ${likesCount}`);
+});
+
+socket.on('like message', function (likedMessageId) {
+    const likesCount = processLike(likedMessageId);
+    io.emit('update likes', { likedMessageId, likesCount });
+});
+
+
+//=====================SENDING IMAGES SET SUCCESSFULLY==============//
+
+socket.on('image', function (data) {
+        const { username, image } = data;
+        let likeNumber = 0;
+        $('#messages').append($('<li>')
+          .html(`<span>${username}:</span>
+        <img src="${image}" alt="image" style="max-width: 300px; max-height: 300px; background-color: transparent;margin-left:5px"/><br>
+        <button><i class="fa-solid fa-heart" style="color:red"></i></button>
+        `));
+
+        scrollChatContainer();
+        saveToLocalStorage();
+      });
+
+      //=====================CLEAR CHAT BTN SET SUCCESSFULLY==============//
+      
+      const clear_chat = document.getElementById('clear-chat');
+      clear_chat.addEventListener("click", function () {
+        localStorage.removeItem('chatMessages'); // Remove stored messages from local storage
+        $('#messages').html(''); // Clear chat on the page
+      });
+
+//=====================AUTO SCROLL MESSAGE SET SUCCESSFULLY==============//
+
+      function scrollChatContainer() {
+        const chatContainer = $('.chat-container');
+        chatContainer.scrollTop(chatContainer[0].scrollHeight);
+      }
+
+
+    });
+    setUsername.addEventListener("click", () => {
+      document.querySelector('.for-inline').style.visibility = 'visible';
+    });
+
+
+   //=====================ENTER USERNAME SET SUCCESSFULLY==============//
+    document.addEventListener("DOMContentLoaded", function () {
+      const setUsernameInput = document.getElementById("username");
+      setUsernameInput.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          document.getElementById("setUsername").click();
+        }
+      });
+    });
+ 
+
+  </script>
+</body>
+
+</html>

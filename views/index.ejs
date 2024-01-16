@@ -1,0 +1,61 @@
+<%- include('partials/header') %>
+
+<div class="body">
+
+<div class="container-yash-home">
+
+  <div class="img-div">
+    <img src="/imgs/yashlgo.png" alt="" srcset="">
+  </div>
+
+  <div class="log-flex">
+  <div class="login-register">
+        <!-- Makes POST request to /login route -->
+        <form action="/login" method="POST">
+          <div class="login-register-form">
+<div class="logo-login">
+  <img  width="300px" height="100px" style="border-radius: 7px;box-shadow: 1px 1px 20px aliceblue;
+  margin-bottom: 20px;" src="/imgs/yash-studio.png" alt="">
+</div>
+
+          <div class="form-group">
+            
+            <input type="email"  id="imput-u" class="form-control" name="username" placeholder="Phone number, username or email address"  required>
+          </div>
+          <div class="form-group">
+  
+            <input type="password" id="imput-p" class="form-control" name="password" placeholder="password" required>
+          </div>
+          <% if (locals.errorMessage) { %>
+            <div class="alert alert-danger" role="alert">
+                <%= errorMessage %>
+            </div>
+        <% } %>
+          <button type="submit" class="btn btn-dark ba">Login</button>
+          </div>
+        </form>
+
+        <div style="display: flex;align-items: center;" class="div-or-line">
+        <div class="div1"></div>
+        <div class="div2">or</div>
+        <div class="div1"></div>
+        </div>
+
+        <div class="other-login">
+        <span> <a href="/auth/google"> <i class="fa-brands fa-google"></i> login with google</span></a>
+        </div>
+        <span><a href="">forget your password ?</a></span>
+
+        <small style="text-align: center;">Sorry, for now password reset feature <br> is not available so remember pasword</small>
+ 
+ 
+      </div>
+        <div class="login-register new-register">
+          Don't have an account?<a href="/register">Sign up here</a> <br>
+        
+
+        </div>
+      
+</div>
+</div>
+  <%- include('partials/footer') %>
